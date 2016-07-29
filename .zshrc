@@ -85,6 +85,8 @@ source $ZSH/oh-my-zsh.sh
 
 #bindkey -v
 
+export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+
 echo -e "\033[31m Commander, Enjoy yourself & Good hunting \033[0m"
 
 source /Volumes/Work/z.sh
@@ -93,7 +95,10 @@ echo "Current directory is:"
 echo `pwd`
 
 alias todo="open https://sh.wiimu.com:8090/display/ET/iOS+todo+lsit"
-alias gerrit='open https://sh.wiimu.com:8010/#/q/status:open+AND+%28owner:%22Shuai%20Zhao%20%3Cshuai.zhao@wiimu.com%3E%22+OR+owner:%22Yining%20Xu%20%3Cyining.xu@wiimu.com%3E%22+OR+owner:%22Ning%20Liu%20%3Cning.liu@wiimu.com%3E%22%29'
-alias fir="open http://fir.im/apps/"
+alias gerrit='open https://sh.wiimu.com:8010/#/q/status:open+AND+%28owner:%22Shuai%20Zhao%20%3Cshuai.zhao@wiimu.com%3E%22+OR+owner:%22Yining%20Xu%20%3Cyining.xu@wiimu.com%3E%22+OR+owner:%22Ning%20Liu%20%3Cning.liu@wiimu.com%3E%22+OR+owner:%22Yu%20Sun%20%3Cyu.sun@wiimu.com%3E%22%29'
 alias jira="open https://jira.wiimu.com/secure/Dashboard.jspa"
-alias wpush="python /Volumes/Work/emacs/wiimupush.py"
+alias wpush="python /Volumes/Work/MyZshConfig/wiimupush.py"
+alias jenkins="open https://sh.wiimu.com:8082/view/ios_build/"
+alias artifactory="open https://sh.wiimu.com:8081/artifactory/webapp/#/artifacts/browse/tree/General/ios"
+
+alias go="python ~/QuickGoogle.py"
