@@ -116,11 +116,6 @@ alias xclean="python /Users/hy/ScriptHelper/GitClean.py"
 # Use 'dsym + xxx' to parse your crash log.
 alias dsym="python /Users/hy/ScriptHelper/CrashParser.py -i"
 
-#test
-export USER_CONFIG_PATH='/Volumes/Work/git/ios_muzoplayer/config.json'
-export USER_RESOURCE_PATH='/Volumes/Work/git/ios_muzoplayer/source'
-export IOS_SYSTEM_PWD='123456'
-
 # Use 'wpush' to push your code to gerrit.
 alias wpush="python /Users/hy/ScriptHelper/wiimupush.py"
 
