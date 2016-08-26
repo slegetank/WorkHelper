@@ -94,11 +94,38 @@ cd /Volumes/Work/git/
 echo "Current directory is:"
 echo `pwd`
 
-alias todo="open https://sh.wiimu.com:8090/display/ET/iOS+todo+lsit"
-alias gerrit='open https://sh.wiimu.com:8010/#/q/status:open+AND+%28owner:%22Shuai%20Zhao%20%3Cshuai.zhao@wiimu.com%3E%22+OR+owner:%22Yining%20Xu%20%3Cyining.xu@wiimu.com%3E%22+OR+owner:%22Ning%20Liu%20%3Cning.liu@wiimu.com%3E%22+OR+owner:%22Yu%20Sun%20%3Cyu.sun@wiimu.com%3E%22%29'
-alias jira="open https://jira.wiimu.com/secure/Dashboard.jspa"
-alias wpush="python /Volumes/Work/MyZshConfig/wiimupush.py"
-alias jenkins="open https://sh.wiimu.com:8082/view/ios_build/"
-alias artifactory="open https://sh.wiimu.com:8081/artifactory/webapp/#/artifacts/browse/tree/General/ios"
+# git
+alias gr='git rebase'
+alias gch='git cherry-pick'
+alias gc='git checkout'
+alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gs='git status'
 
+# workflow
+alias todo="open https://sh.linkplay.com:8090/display/ET/iOS+todo+lsit"
+alias gerrit='open https://sh.linkplay.com:8010/#/q/status:open+AND+%28owner:%22Shuai%20Zhao%20%3Cshuai.zhao@wiimu.com%3E%22+OR+owner:%22Yining%20Xu%20%3Cyining.xu@wiimu.com%3E%22+OR+owner:%22Ning%20Liu%20%3Cning.liu@wiimu.com%3E%22+OR+owner:%22Yu%20Sun%20%3Cyu.sun@wiimu.com%3E%22%29'
+alias fir="open http://fir.im/apps/"
+alias jira="open https://jira.linkplay.com/secure/Dashboard.jspa"
+alias jenkins="open https://sh.linkplay.com:8082/view/ios_build/"
+alias artifactory="open https://sh.linkplay.com:8081/artifactory/webapp/#/artifacts/browse/tree/General/ios"
+
+# scripts
 alias go="python ~/QuickGoogle.py"
+alias xclean="python /Users/hy/ScriptHelper/GitClean.py"
+# Use 'dsym + xxx' to parse your crash log.
+alias dsym="python /Users/hy/ScriptHelper/CrashParser.py -i"
+
+#test
+export USER_CONFIG_PATH='/Volumes/Work/git/ios_muzoplayer/config.json'
+export USER_RESOURCE_PATH='/Volumes/Work/git/ios_muzoplayer/source'
+export IOS_SYSTEM_PWD='123456'
+
+# Use 'wpush' to push your code to gerrit.
+alias wpush="python /Users/hy/ScriptHelper/wiimupush.py"
+
+# Use 'wlipo' to make fat .a
+alias wlipo="python /Users/hy/ScriptHelper/wlipo.py -x"
+
+# Use 't2w + weeklyPageId' to copy your todo finished items to weekly page.
+alias t2w="python /Users/hy/ScriptHelper/todo2weekly.py"

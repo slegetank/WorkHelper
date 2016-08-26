@@ -24,7 +24,7 @@
 
 # My Workflow Helper<a id="orgheadline9"></a>
 
-Here lives the soilders what battle for me in ordinary days.
+Here lives the soilders who battle for me in ordinary days. Without them, I can never survive.
 
 ## z.sh<a id="orgheadline1"></a>
 

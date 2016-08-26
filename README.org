@@ -4,7 +4,7 @@
 #+EMAIL: slege_tank@163.com
 
 * My Workflow Helper
-Here lives the soilders what battle for me in ordinary days.
+Here lives the soilders who battle for me in ordinary days. Without them, I can never survive.
 ** z.sh
 z, come from here: https://github.com/rupa/z/blob/master/z.sh, good at change dir.
 ** .zshrc
