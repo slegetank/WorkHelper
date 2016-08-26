@@ -124,3 +124,6 @@ alias wlipo="python /Users/hy/ScriptHelper/wlipo.py -x"
 
 # Use 't2w + weeklyPageId' to copy your todo finished items to weekly page.
 alias t2w="python /Users/hy/ScriptHelper/todo2weekly.py"
+
+# use 'ltool' to use these little tools.
+alias ltool="python /Users/hy/ScriptHelper/LittleTools.py"
