@@ -21,3 +21,6 @@ Every friday, use this to carray finished jobs from todo to weekly page.
 Easy way to push commits from local to gerrit.
 *** wlipo
 Easy way to generate a fat .a.
+*** LittleTools
+**** Clean derived data dir.
+**** Show/hide hidden files.
