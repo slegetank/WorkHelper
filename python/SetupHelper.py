@@ -10,6 +10,13 @@ scriptFolder = os.path.expanduser('~/ScriptHelper')
 
 def setup(scriptFile, command, helperText):
     fileName = os.path.basename(scriptFile)
+    isPackage = False
+    if fileName == '__main__.py':
+        isPackage = True
+        scriptFile = os.path.dirname(scriptFile)
+        fileName = os.path.basename(scriptFile)
+
+    # dest
     scriptPath = os.path.expanduser('%s/%s' % (scriptFolder, fileName))
 
     # copy to dest dir
@@ -18,14 +25,21 @@ def setup(scriptFile, command, helperText):
         os.mkdir(scriptFolder)
 
     if os.path.exists(scriptPath):
-        os.remove(scriptPath)
+        if not isPackage:
+            os.remove(scriptPath)
+        else:
+            os.system('rm -rf %s' % scriptPath)
 
     # helper udpate
     if os.path.exists('%s/%s' % (scriptFolder, os.path.basename(__file__))):
         os.remove('%s/%s' % (scriptFolder, os.path.basename(__file__)))
 
     shutil.copyfile(os.path.realpath(__file__), '%s/%s' % (scriptFolder, os.path.basename(__file__)))
-    shutil.copyfile(scriptFile, scriptPath)
+
+    if not isPackage:
+        shutil.copyfile(scriptFile, scriptPath)
+    else:
+        shutil.copytree(scriptFile, scriptPath)
 
     print 'Modify command record...'
     # see what shell in use
