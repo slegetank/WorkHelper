@@ -1,0 +1,5 @@
+biplist==1.0.1
+bonjour-py==0.3
+Pillow==3.3.0
+qrcode==5.3
+requests==2.9.1

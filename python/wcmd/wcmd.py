@@ -9,12 +9,19 @@ import requests
 import biplist
 import subprocess
 import time
+import SimpleHTTPServer
+import SocketServer 
+import thread
+import socket
 
 import SSDP
 
 wcmdDeviceUpdateMethod = None
 deviceArray = None
 sys_log_count = 8
+
+isContrast = False
+localHTTPServer = None
 
 class wdevice(object):
     def __init__(self, ipaddress):
@@ -55,6 +62,33 @@ class wdevice(object):
                 break
 
             time.sleep(1)
+
+    def cmd_contrast(self):
+        global localHTTPServer
+        global isContrast
+
+        if not localHTTPServer:
+            os.chdir(os.path.dirname(__file__))
+            class ReusableTCPServer(SocketServer.TCPServer): allow_reuse_address=True
+            localHTTPServer = ReusableTCPServer(("0.0.0.0", 8000), SimpleHTTPServer.SimpleHTTPRequestHandler)
+            thread.start_new_thread(localHTTPServer.serve_forever, ())
+
+        if not isContrast:
+            isContrast = True
+
+            localIP = socket.gethostbyname(socket.getfqdn(socket.gethostname()))
+            url = 'http://%s/httpapi.asp?command=%s' % (self.ip, 'setPlayerCmd:play:http://%s:8000/music.mp3' % localIP)
+            response = requests.get(url)
+            if response.text == 'OK':
+                requests.get('http://%s/httpapi.asp?command=setPlayerCmd:vol:80' % self.ip)
+
+            os.system('clear')
+            print 'Start play...'
+        else:
+            isContrast = False
+            requests.get('http://%s/httpapi.asp?command=setPlayerCmd:stop' % self.ip)
+            os.system('clear')
+            print 'Stop'
 
     def cmd_ping(self):
         ret = os.popen('pgrep ping %s tail' % self.ip).read().strip()
