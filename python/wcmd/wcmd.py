@@ -20,12 +20,12 @@ wcmdDeviceUpdateMethod = None
 deviceArray = None
 sys_log_count = 8
 
-isContrast = False
 localHTTPServer = None
 
 class wdevice(object):
     def __init__(self, ipaddress):
         self.ip = ipaddress
+        self.isContra = False
 
     # public
     def cmd_getStatusEx(self):
@@ -63,9 +63,8 @@ class wdevice(object):
 
             time.sleep(1)
 
-    def cmd_contrast(self):
+    def cmd_contra(self):
         global localHTTPServer
-        global isContrast
 
         if not localHTTPServer:
             os.chdir(os.path.dirname(__file__))
@@ -73,8 +72,8 @@ class wdevice(object):
             localHTTPServer = ReusableTCPServer(("0.0.0.0", 8000), SimpleHTTPServer.SimpleHTTPRequestHandler)
             thread.start_new_thread(localHTTPServer.serve_forever, ())
 
-        if not isContrast:
-            isContrast = True
+        if not self.isContra:
+            self.isContra = True
 
             localIP = socket.gethostbyname(socket.getfqdn(socket.gethostname()))
             url = 'http://%s/httpapi.asp?command=%s' % (self.ip, 'setPlayerCmd:play:http://%s:8000/music.mp3' % localIP)
@@ -85,7 +84,7 @@ class wdevice(object):
             os.system('clear')
             print 'Start play...'
         else:
-            isContrast = False
+            self.isContra = False
             requests.get('http://%s/httpapi.asp?command=setPlayerCmd:stop' % self.ip)
             os.system('clear')
             print 'Stop'
