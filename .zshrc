@@ -89,10 +89,7 @@ export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
 
 echo -e "\033[31m Commander, Enjoy yourself & Good hunting \033[0m"
 
-source /Volumes/Work/z.sh
-cd /Volumes/Work/git/
-echo "Current directory is:"
-echo `pwd`
+source /Users/hy/ScriptHelper/z.sh
 
 # git
 alias gr='git rebase'
@@ -111,19 +108,3 @@ alias jenkins="open https://sh.linkplay.com:8082/view/ios_build/"
 alias artifactory="open https://sh.linkplay.com:8081/artifactory/webapp/#/artifacts/browse/tree/General/ios"
 
 # scripts
-alias go="python ~/QuickGoogle.py"
-alias xclean="python /Users/hy/ScriptHelper/GitClean.py"
-# Use 'dsym + xxx' to parse your crash log.
-alias dsym="python /Users/hy/ScriptHelper/CrashParser.py -i"
-
-# Use 'wpush' to push your code to gerrit.
-alias wpush="python /Users/hy/ScriptHelper/wiimupush.py"
-
-# Use 'wlipo' to make fat .a
-alias wlipo="python /Users/hy/ScriptHelper/wlipo.py -x"
-
-# Use 't2w + weeklyPageId' to copy your todo finished items to weekly page.
-alias t2w="python /Users/hy/ScriptHelper/todo2weekly.py"
-
-# use 'ltool' to use these little tools.
-alias ltool="python /Users/hy/ScriptHelper/LittleTools.py"
