@@ -58,11 +58,13 @@ fi
 echo '******************pip***********************'
 if [[ ! `zsh -c 'where pip'` =~ .*pip$ ]];then
     curl -o pip.py https://bootstrap.pypa.io/get-pip.py
-    python get-pip.py
-    echo $ROOTPASS | sudo -S pip install -r $SOURCEDIR/python/require.txt
+    echo $ROOTPASS | sudo -S python pip.py
 else
     echo 'pip already satisfied.'
 fi
+
+echo '*'*************requirements*'****************'
+echo $ROOTPASS | sudo -S pip install -r $SOURCEDIR/python/require.txt
 
 echo '******************helpers***********************'
 pylist=`ls $SOURCEDIR/python/`
