@@ -30,7 +30,12 @@ Here lives the soilders who battle for me in ordinary days. Without them, I can 
 
 ## setup.sh<a id="orgheadline1"></a>
 
-Fast way to setup all these helpers.
+Fast way to setup all these helpers. Currently, it consists of these steps:
+
+-   iTerm && oh-my-zsh
+-   Homebrew
+-   PyPi
+-   Other Helper Scripts
 
 ## z.sh<a id="orgheadline2"></a>
 
