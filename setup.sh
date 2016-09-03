@@ -23,15 +23,10 @@ else
     echo 'iTerm already satisfied.'
 fi
 
-# zsh
-if [ ! $SHELL == "/bin/zsh" ];then
-    echo $ROOTPASS | sudo -S chsh -s /bin/zsh
-fi
-
 # oh my zsh
 echo '******************oh my zsh***********************'
 if [ ! -d ~/.oh-my-zsh ];then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    source /dev/stdin <<< "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 else
     echo 'oh my zsh already satisified.'
 fi
