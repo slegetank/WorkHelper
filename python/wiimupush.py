@@ -231,10 +231,6 @@ def getGerritAccountPass():
 if __name__ == '__main__':
     global dest_branch
 
-    if checkIfCurrentDirectoryIsGit() == False:
-        printerr('Current dir is not under git control.')
-        sys.exit()
-
     forcePush = False
     dest_branch = None
 
@@ -249,6 +245,10 @@ if __name__ == '__main__':
                               'alias wpush=\"python %s/%s\"' % (SetupHelper.scriptFolder, os.path.basename(__file__)),
                               'Use \'wpush\' to push your code to gerrit.')
             sys.exit(0)
+
+    if checkIfCurrentDirectoryIsGit() == False:
+        printerr('Current dir is not under git control.')
+        sys.exit()
 
     if dest_branch == None:
         dest_branch = getCurrentBranch()
