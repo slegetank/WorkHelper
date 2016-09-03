@@ -16,10 +16,6 @@ def checkIfCurrentDirectoryIsGit():
         return False
 
 if __name__ == '__main__':
-    if not checkIfCurrentDirectoryIsGit():
-        print 'Not a git dir. Abort'
-        sys.exit(-1)
-
     # s - setup
     opts, args = getopt.getopt(sys.argv[1:], 's', '')
     for option, value in opts:
@@ -28,6 +24,10 @@ if __name__ == '__main__':
                               'alias xclean=\"python %s/%s\"' % (SetupHelper.scriptFolder, os.path.basename(__file__)),
                               'Use \'xclean\' to clean your git repository throughly')
             sys.exit(0)
+
+    if not checkIfCurrentDirectoryIsGit():
+        print 'Not a git dir. Abort'
+        sys.exit(-1)
 
     # read remote info
     remoteUrl = os.popen('git remote get-url --push origin').read().strip()
