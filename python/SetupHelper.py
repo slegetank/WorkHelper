@@ -45,7 +45,9 @@ def setup(scriptFile, command, helperText):
     # see what shell in use
     confPath = ''
     shellCmd = ''
-    shellRet = os.popen('echo $SHELL').read().strip()
+    #shellRet = os.popen('echo $SHELL').read().strip()
+    # force zsh
+    shellRet = '/bin/zsh'
 
     if shellRet.endswith('bash'):
         confPath = os.path.expanduser('~/.bash_profile')

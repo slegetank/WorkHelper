@@ -24,7 +24,7 @@ else
 fi
 
 # zsh
-if [ ! $SHELL == /bin/zsh ];then
+if [ ! $SHELL == "/bin/zsh" ];then
     echo $ROOTPASS | sudo -S chsh -s /bin/zsh
 fi
 
