@@ -89,7 +89,6 @@ def modifyWeeklyPage(finishedJobs, weeklyPageId):
         jobsContent += '<li><span class=\"s1\">%s - %s</span></li>' % (job['title'], job['desc'])
 
     # last friday
-
     today = date.today()
     lastFriday = today + relativedelta(weekday=FR(-1))
     lastFriday = lastFriday.strftime("%Y-%m-%d") 
@@ -126,9 +125,13 @@ if __name__ == '__main__':
             weeklyPageId = value
         elif option == '-s':
             SetupHelper.setup(os.path.realpath(__file__),
-                              'alias t2w=\"python %s/%s\"' % (SetupHelper.scriptFolder, os.path.basename(__file__)),
+                              'alias t2w=\"python %s/%s -w\"' % (SetupHelper.scriptFolder, os.path.basename(__file__)),
                               'Use \'t2w + weeklyPageId\' to copy your todo finished items to weekly page.')
             sys.exit(0)
+
+    if len(weeklyPageId) == 0:
+        print 'Need weekly pageId'
+        sys.exit(-1)
 
     getGerritAccountPass()
     finishedJob = parseTodoData()
