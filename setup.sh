@@ -54,6 +54,12 @@ else
     echo 'brew already satisified.'
 fi
 
+# Xcode Package Manager
+if [[ ! -d "$HOME/Library/Application Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin" ]];then
+    curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/install.sh | sh
+    killall Xcode
+fi
+
 # python
 echo '******************pip***********************'
 if [[ ! `zsh -c 'where pip'` =~ .*pip$ ]];then
@@ -69,7 +75,7 @@ echo $ROOTPASS | sudo -S pip install -r $SOURCEDIR/python/require.txt
 echo '******************helpers***********************'
 pylist=`ls $SOURCEDIR/python/`
 cd $SOURCEDIR/python/
-for file in $pylist:
+for file in $pylist
 do
     if [[ -a $HELPERDIR/$file ]];then
         echo "$file exsits, skip."
