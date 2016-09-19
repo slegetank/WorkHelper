@@ -18,7 +18,6 @@ import SSDP
 
 wcmdDeviceUpdateMethod = None
 deviceArray = None
-sys_log_count = 8
 
 localHTTPServer = None
 
@@ -38,7 +37,7 @@ class wdevice(object):
         global sys_log_count
 
         os.system('clear')
-        url = 'http://%s/httpapi.asp?command=getsyslog' % self.ip
+        url = 'http://%s/httpapi.asp?command=getprivatesyslog' % self.ip
         response = requests.get(url)
         print url
         print '*******************************************'
@@ -46,22 +45,7 @@ class wdevice(object):
             print response.text
             print '*******************************************'
         else:
-            sys_log_count = 8
-            threading.Thread(target=self.waitForSyslog).start()
-
-    def waitForSyslog(self):
-        global sys_log_count
-
-        while True:
-            print 'Please wait about %d seconds...' % sys_log_count
-            sys_log_count-=1
-
-            if sys_log_count == 0:
-                print '*******************************************'
-                os.system('open http://%s/data/sys.log' % self.ip)
-                break
-
-            time.sleep(1)
+            os.system('open http://%s/data/sys.log' % self.ip)
 
     def cmd_contra(self):
         global localHTTPServer
