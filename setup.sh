@@ -35,10 +35,10 @@ if [ ! -d $HELPERDIR ];then
     mkdir $HELPERDIR
 fi
 
-# z.sh
-if [ ! -f $HELPERDIR/z.sh ];then
-    cp $SOURCEDIR/z.sh $HELPERDIR/z.sh
-fi
+# z.sh - ignore, oh-my-zsh already supplied
+#if [ ! -f $HELPERDIR/z.sh ];then
+#    cp $SOURCEDIR/z.sh $HELPERDIR/z.sh
+#fi
 
 # .zshrc
 if [ ! -f ~/.zshrc ];then

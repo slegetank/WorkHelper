@@ -1,6 +1,6 @@
 #+TITLE: My Workflow Helper
 #+AUTHOR: Me
-#+DATE: 2016-08-26
+#+DATE: 2016-10-10
 #+EMAIL: slege_tank@163.com
 
 * My Workflow Helper
@@ -11,8 +11,6 @@ Fast way to setup all these helpers. Currently, it consists of these steps:
 + Homebrew
 + PyPi
 + Other Helper Scripts
-** z.sh
-z, come from here: https://github.com/rupa/z/blob/master/z.sh, good at change dir.
 ** .zshrc
 zsh configure file
 ** Python Scripts
