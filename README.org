@@ -19,8 +19,6 @@ Life is short, use python.
 Easy way to parse iOS .ips or .crash file.
 *** GitClean
 Just git clean & git reset, easy way to give me a really clean working directory.
-*** todo2weekly
-Every friday, use this to carray finished jobs from todo to weekly page.
 *** wiimupush
 Easy way to push commits from local to gerrit.
 *** wlipo
