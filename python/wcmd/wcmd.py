@@ -81,6 +81,27 @@ class wdevice(object):
             processNum = ret.split(' ')[0]
             os.system('kill %s' % processNum)
 
+    def cmd_reboot(self):
+        ret = raw_input('Confirm to reboot: y/n')
+        if ret == 'y':
+            self.commonHttpMethod('reboot')
+        else:
+            print 'cancel'
+
+    def cmd_restore(self):
+        ret = raw_input('Confirm to restore to factory: y/n')
+        if ret == 'y':
+            self.commonHttpMethod('restoreToDefault')
+        else:
+            print 'cancel'
+
+    def cmd_getDebugInfo(self):
+        self.commonHttpMethod('getDebugInfo')
+
+
+    def cmd_setMultiroomLogic(self):
+        self.commonHttpMethod('setMultiroomLogic:1')
+
     # private
     def commonHttpMethod(self, cmd):
         os.system('clear')
