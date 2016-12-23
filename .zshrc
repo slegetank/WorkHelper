@@ -85,9 +85,19 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
 
-echo -e "\033[31m Commander, Enjoy yourself & Good hunting \033[0m"
+echo -e "\033[31mCommander, Enjoy yourself & Good hunting \033[0m"
+echo "SSID: "`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`" IP: "`ipconfig getifaddr en0`
 
-source /Users/hy/ScriptHelper/z.sh
+# cd Finder path
+cdf()
+{
+    curFinderDir=`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`
+    echo "\033[31m$curFinderDir\033[0m"
+    cd "$curFinderDir"
+}
+
+# lock screen
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # git
 alias gr='git rebase'

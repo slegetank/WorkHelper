@@ -87,6 +87,27 @@ do
     fi
 done
 
+echo '******************better mac defaults***********************'
+# TextEdit defaults txt
+defaults write com.apple.TextEdit RichText -int 0
+
+# Finder show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Finder show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Default search current folder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Finder default locate to home
+defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+# Play iPhone charge sound when connected to MagSafe
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
+open /System/Library/CoreServices/PowerChime.app
+
 # clean
 rm -rf $TEMPDIR
 
