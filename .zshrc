@@ -89,12 +89,14 @@ echo -e "\033[31mCommander, Enjoy yourself & Good hunting \033[0m"
 echo "SSID: "`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`" IP: "`ipconfig getifaddr en0`
 
 # cd Finder path
-cdf()
+fcd()
 {
     curFinderDir=`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`
     echo "\033[31m$curFinderDir\033[0m"
     cd "$curFinderDir"
 }
+
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 # lock screen
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -114,5 +116,6 @@ alias fir="open http://fir.im/apps/"
 alias jira="open https://jira.linkplay.com/secure/Dashboard.jspa"
 alias jenkins="open https://sh.linkplay.com:8082/view/ios_build/"
 alias artifactory="open https://sh.linkplay.com:8081/artifactory/webapp/#/artifacts/browse/tree/General/ios"
+alias github="open http://github.com/slegetank"
 
 # scripts
