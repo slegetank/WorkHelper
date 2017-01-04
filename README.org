@@ -3,26 +3,27 @@
 #+DATE: 2016-10-10
 #+EMAIL: slege_tank@163.com
 
-* My Workflow Helper
 Here lives the soilders who battle for me in ordinary days. Without them, I can never survive.
-** setup.sh
+* setup.sh
 Fast way to setup all these helpers. Currently, it consists of these steps:
 + iTerm && oh-my-zsh
 + Homebrew
 + PyPi
 + Other Helper Scripts
-** .zshrc
+* .zshrc
 zsh configure file
-** Python Scripts
+* Python Scripts
 Life is short, use python.
-*** CrashParser
+** CrashParser
 Easy way to parse iOS .ips or .crash file.
-*** GitClean
+** GitClean
 Just git clean & git reset, easy way to give me a really clean working directory.
-*** wiimupush
+** wiimupush
 Easy way to push commits from local to gerrit.
-*** wlipo
+** wlipo
 Easy way to generate a fat .a.
-*** LittleTools
-**** Clean derived data dir.
-**** Show/hide hidden files.
+** LittleTools
+*** Clean derived data dir.
+*** Show/hide hidden files.
+** vnc
+No need to use "Connect to Server", just command line to access VNC
