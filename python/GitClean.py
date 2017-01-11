@@ -1,13 +1,12 @@
-#coding=utf-8
+# coding=utf-8
 
-import sys, os, json, getopt, shutil
+import SetupHelper
+import sys
+import os
+import getopt
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
-import random
-
-import requests
-import re
-import SetupHelper
 
 def checkIfCurrentDirectoryIsGit():
     if os.system('git rev-parse') == 0:
