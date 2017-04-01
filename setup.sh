@@ -69,13 +69,13 @@ else
     echo 'pip already satisfied.'
 fi
 
-echo '*'*************requirements*'****************'
+echo '**************requirements*****************'
 echo $ROOTPASS | sudo -S pip install -r $SOURCEDIR/python/require.txt
 
 echo '******************helpers***********************'
 pylist=`ls $SOURCEDIR/python/`
 cd $SOURCEDIR/python/
-for file in $pylist
+ls $1 | while read file;
 do
     if [[ -a $HELPERDIR/$file ]];then
         echo "$file exsits, skip."

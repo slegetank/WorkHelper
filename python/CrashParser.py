@@ -10,6 +10,10 @@ if __name__ == '__main__':
     if not os.path.exists('%s/symbolicatecrash' % SetupHelper.scriptFolder):
         print 'First time locate symbolicatecrash cmd...'
         cmdPath = os.popen('find /Applications/Xcode.app -name symbolicatecrash').read().strip()
+
+        if len(cmdPath.split()) != 0:
+            cmdPath = cmdPath.split()[-1:][0]
+
         if len(cmdPath) == 0:
             print 'Found no symbolicatecrash, please assure your XCode is installed correctly.'
         else:
